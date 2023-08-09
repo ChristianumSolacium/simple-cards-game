@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://xu72tu2chram"]
+
+[ext_resource type="PackedScene" uid="uid://coweca1g0ew8m" path="res://scenes/card.tscn" id="1_6y3v2"]
+
+[node name="CardInstance" type="Node"]
+
+[node name="Card" parent="." instance=ExtResource("1_6y3v2")]
+atk = 5
+stamina = -2

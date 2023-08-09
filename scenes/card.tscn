@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://coweca1g0ew8m"]
+
+[ext_resource type="Script" path="res://scripts/Card.gd" id="1_xfx6v"]
+[ext_resource type="Texture2D" uid="uid://ddwj4qhb7ghwk" path="res://sprites/sword.png" id="2_hg71m"]
+[ext_resource type="Texture2D" uid="uid://b38gq36sfdxax" path="res://sprites/shield.png" id="3_ia5xp"]
+[ext_resource type="Texture2D" uid="uid://la6ynerscyx1" path="res://sprites/flask.png" id="4_ghsbq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jlnbp"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_j15kq"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_cnwft"]
+font_size = 40
+font_color = Color(0, 0.431373, 0.215686, 1)
+
+[node name="Card" type="Node2D"]
+texture_filter = 3
+script = ExtResource("1_xfx6v")
+metadata/_edit_vertical_guides_ = [-112.0]
+
+[node name="BackGround" type="Polygon2D" parent="."]
+color = Color(0, 0.3, 0, 1)
+polygon = PackedVector2Array(0, 0, 192, 0, 192, 256, 0, 256)
+
+[node name="Value" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 192.0
+offset_right = 64.0
+offset_bottom = 230.0
+label_settings = SubResource("LabelSettings_jlnbp")
+horizontal_alignment = 2
+script = SubResource("GDScript_j15kq")
+
+[node name="Stamina" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 192.0
+offset_right = 176.0
+offset_bottom = 230.0
+text = "0"
+label_settings = SubResource("LabelSettings_cnwft")
+
+[node name="Icons" type="Node2D" parent="."]
+position = Vector2(96, 112)
+scale = Vector2(3, 3)
+
+[node name="Sword" type="Sprite2D" parent="Icons"]
+visible = false
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_hg71m")
+
+[node name="Shield" type="Sprite2D" parent="Icons"]
+visible = false
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_ia5xp")
+
+[node name="Flask" type="Sprite2D" parent="Icons"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_ghsbq")
